@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Resaltado de la sección activa
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
 
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Animación de entrada para la sección Hero
     const heroText = document.querySelector(".hero-content h2");
     heroText.style.opacity = "0";
     heroText.style.transform = "translateY(-20px)";
@@ -30,4 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
         heroText.style.transform = "translateY(0)";
         heroText.style.transition = "all 1s ease-in-out";
     }, 500);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+
+    function checkVisibility() {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
+                section.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkVisibility);
+    checkVisibility();
 });
