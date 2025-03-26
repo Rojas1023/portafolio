@@ -13,13 +13,83 @@
 
 /* Encabezado */
 
+/* Ajustes generales */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #222;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Ocultar menú en pantallas pequeñas */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+/* Botón hamburguesa (solo en móviles) */
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    display: none; /* Oculto en escritorio */
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Ocultar menú normal */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #222;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostrar menú hamburguesa */
+    }
+
+    /* Mostrar menú cuando está activo */
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+
+/* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     background: #222;
-    /* background-image: url('https://togrowagencia.com/wp-content/uploads/2024/06/desarrollo-de-software-1.webp'); */
     color: white;
     position: fixed;
     width: 100%;
@@ -47,7 +117,7 @@ nav a {
 
 nav a:hover {
     color: #00bcd4;
-}
+} */
 
 /* Sección Hero */
 .hero {
